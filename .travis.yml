@@ -1,5 +1,4 @@
 sudo:     required
-
 language: generic
 
 services:
@@ -17,7 +16,7 @@ after_success:
   - echo "Test success"
 
 deploy:
-  provider:          beanstalk
+  provider:          elasticbeanstalk
   region:            us-east-1
   app:               docker-react
   env:               Dockerreact-env
