@@ -1,6 +1,6 @@
-sudo: required
+sudo:              required
 
-language: generic
+language:          generic
 
 services:
   - docker
@@ -15,3 +15,16 @@ script:
 
 after_success:
   - echo "Test success"
+
+deploy:
+  provider:    beanstalk
+  region:      us-east-1
+  app:         docker-react
+  env:         Dockerreact-env
+  bucket_name: elasticbeanstalk-us-east-1-533675935887
+  bucket_path: docker-react
+  on:
+    branch: master
+
+access_key_id:     $ACCESS_KEY_ID
+secret_access_key: $SECRET_ACCESS_KEY
